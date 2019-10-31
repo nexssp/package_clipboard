@@ -1,6 +1,6 @@
 name: Clipboard
 author: Marcin Polak <mapoart@gmail.com>
 package: Nexss Programmer 2.0
-debug: true
+debug: false
 files:
   - name: src/index.js

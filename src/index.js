@@ -29,7 +29,12 @@ process.stdin.on("data", function(NexssStdin) {
         console.log(`Clipboard stored.`);
       }
     } else {
-      NexssStdout["Clipboard"] = clipboardy.readSync();
+      try {
+        NexssStdout["Clipboard"] = clipboardy.readSync();
+      } catch (error) {
+        console.log("Is the Clipboard is empty?");
+      }
+
       if (NexssStdout.debug || NexssStdout.verbose) {
         console.log(`Clipboard read. DATA: ${NexssStdout["Clipboard"]}`);
       }
