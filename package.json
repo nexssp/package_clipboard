@@ -1,7 +1,7 @@
 {
   "name": "Clipboard",
   "version": "1.0.0",
-  "description": "Read me file template.",
+  "description": "Clipboard operations for Nexss PROGRAMMER 2.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "clipboardy": "^2.1.0",
-    "minimist": "^1.2.0"
+    "clipboardy": "^2.1.0"
   }
 }

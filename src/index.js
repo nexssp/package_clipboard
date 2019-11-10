@@ -5,18 +5,17 @@ process.stdin.on("data", function(NexssStdin) {
   try {
     NexssStdout = JSON.parse(NexssStdin.toString());
     const clipboardy = require("clipboardy");
-    const cliArgs = require("minimist")(process.argv.slice(2));
 
     // Write DIRECT NEW EXTERNAL Value
     // EG. nexss Clipboard --write="myvalue to store"
     // EG2. echo {"write": "my value to store w/pipe"} | nexss Clipboard
-    const write = cliArgs.Write || cliArgs.write;
+    const write = NexssStdout.write;
     if (write) {
-      clipboardy.writeSync(cliArgs.write + "");
+      clipboardy.writeSync(write + "");
       if (NexssStdout.debug || NexssStdout.verbose) {
         console.log(`Clipboard stored.`);
       }
-    } else if (cliArgs.fields) {
+    } else if (NexssStdout.fields) {
       let result = "";
       cliArgs.fields.split(",").forEach(field => {
         result +=

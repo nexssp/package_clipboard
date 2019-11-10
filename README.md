@@ -18,7 +18,17 @@ nexss Clipboard --delete uniqueId # removes item from Clipboards list
 
 ```
 
+## Credits
+
+Languages/Technologies used for this Nexss PROGRAMMER package:
+
+- NodeJS
+- <https://github.com/sindresorhus/clipboardy>
+- AutoHotKey - Another example of clipboard in the `src/` folder
+
 ## This module was setup by
 
+```sh
 nexss js init
 nexss js install clipboardy
+```
