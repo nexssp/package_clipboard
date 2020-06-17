@@ -1,52 +1,23 @@
-// Nexss PROGRAMMER 2.0.0 - Clipboard - Win32
-// STDIN
-process.stdin.on("data", function(NexssStdin) {
-  let NexssStdout;
+const {
+  nxsWarn,
+} = require(`${process.env.NEXSS_PACKAGES_PATH}/Nexss/Lib/NexssLog.js`);
+
+const NexssIn = require(`${process.env.NEXSS_PACKAGES_PATH}/Nexss/Lib/NexssIn.js`);
+let NexssStdout = NexssIn();
+
+const clipboardy = require("clipboardy");
+
+const write = NexssStdout._write;
+if (write) {
+  clipboardy.writeSync(write + "");
+} else {
   try {
-    NexssStdout = JSON.parse(NexssStdin.toString());
-    const clipboardy = require("clipboardy");
-
-    // Write DIRECT NEW EXTERNAL Value
-    // EG. nexss Clipboard --write="myvalue to store"
-    // EG2. echo {"write": "my value to store w/pipe"} | nexss Clipboard
-    const write = NexssStdout.write;
-    if (write) {
-      clipboardy.writeSync(write + "");
-      if (NexssStdout.debug || NexssStdout.verbose) {
-        console.log(`Clipboard stored.`);
-      }
-    } else if (NexssStdout.fields) {
-      let result = "";
-      cliArgs.fields.split(",").forEach(field => {
-        result +=
-          NexssStdout[field] + "\n"
-            ? NexssStdout[field]
-            : `${field} is empty.\n`;
-      });
-      clipboardy.writeSync(result);
-      if (NexssStdout.debug || NexssStdout.verbose) {
-        console.log(`Clipboard stored.`);
-      }
-    } else {
-      try {
-        NexssStdout["Clipboard"] = clipboardy.readSync();
-      } catch (error) {
-        console.log("Is the Clipboard is empty?");
-      }
-
-      if (NexssStdout.debug || NexssStdout.verbose) {
-        console.log(`Clipboard read. DATA: ${NexssStdout["Clipboard"]}`);
-      }
-    }
-  } catch (e) {
-    console.error(e);
-    process.exit(1);
+    NexssStdout[NexssStdout.resultField_1] = clipboardy.readSync();
+  } catch (error) {
+    nxsWarn("Is the Clipboard is empty?");
   }
-  // STDOUT
-  process.stdout.write(JSON.stringify(NexssStdout));
-});
+}
 
-process.stdin.on("end", function() {
-  //On Windows below is not needed.
-  process.exit(0);
-});
+delete NexssStdout.nxsIn;
+delete NexssStdout.resultField_1;
+process.stdout.write(JSON.stringify(NexssStdout));

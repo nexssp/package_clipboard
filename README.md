@@ -5,22 +5,21 @@ Manage OS/System Clipboard
 ## Examples
 
 ```sh
-nexss Clipboard # displays clipboard data
-nexss Clipboard --write="This is cache long story"
-nexss Clipboard --fields="cwd"
-nexss Clipboard --fields="firstname,lastname"
+nexss Clipboard # put clipboard data in the Clipboard field
+nexss Clipboard --_write="This is cache long story" # write to cache
 
 ## TODO: Clipboard multiple: see below
 
-nexss Clipboard --push="Multiple Clipboard"
-nexss Clipboard --list # displays list with unique ids
-nexss Clipboard --delete uniqueId # removes item from Clipboards list
+# Below is not implemented yet
+nexss Clipboard --_push="Multiple Clipboard"
+nexss Clipboard --_list # displays list with unique ids
+nexss Clipboard --_delete uniqueId # removes item from Clipboards list
 
 ```
 
 ## Credits
 
-Languages/Technologies used for this Nexss PROGRAMMER package:
+Languages/Technologies used for THIS Nexss PROGRAMMER package:
 
 - NodeJS
 - <https://github.com/sindresorhus/clipboardy>

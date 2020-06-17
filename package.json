@@ -1,7 +1,7 @@
 {
   "name": "Clipboard",
   "version": "1.0.0",
-  "description": "Clipboard operations for Nexss PROGRAMMER 2.0",
+  "description": "Clipboard operations for Nexss PROGRAMMER 2.x",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
