@@ -1,0 +1,4 @@
+name: Clipboard/Save
+author: Marcin Polak mapoart@gmail.com
+files:
+  - name: src/saveClipboard.ps1

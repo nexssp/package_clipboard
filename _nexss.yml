@@ -3,7 +3,7 @@ author: Marcin Polak <mapoart@gmail.com>
 package: Nexss Programmer 2.x
 debug: false
 files:
-  - name: src/index.js
+  - name: src/index.mjs
 commands:
   - name: init
     command: npm install
